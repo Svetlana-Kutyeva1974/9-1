@@ -1,5 +1,5 @@
 import Magician from '../Magician.js';
-import Character from '../app.js';
+import Character from '../Character.js';
 
 test('string length name error', () => {
   const result = new Magician('hero', 'Magician');
