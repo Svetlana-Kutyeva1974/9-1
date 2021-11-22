@@ -16,3 +16,14 @@ test('string length name error', () => {
   const result2 = new Character('hero2', 'Magician');
   expect(result2).not.toMatchObject(result1);
 });
+
+test('Проверка значений stoned', () => {
+  const result1 = new Magician('hero', 'Magician');
+  // eslint no-underscore-dangle: "error"
+  expect(result1.stoned).toBe(10);
+});
+
+test('Проверка number', () => {
+  const result1 = new Magician('hero', 'Magician');
+  expect(result1.number).toBe(0);
+});

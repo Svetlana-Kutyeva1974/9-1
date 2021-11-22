@@ -3,7 +3,7 @@ import Character from '../app.js';
 
 test('string length name error', () => {
   const result = new Daemon('hero', 'Daemon');
-  expect(result.attack).toBe(Character.TYPES[`${result.type}`][0]);
+  expect(result.attack).toBe(8);
 });
 
 test('string length name error', () => {
@@ -15,4 +15,15 @@ test('string length name error', () => {
   const result1 = new Daemon('hero', 'Daemon');
   const result2 = new Character('hero', 'Daemon');
   expect(result2).not.toMatchObject(result1);
+});
+
+test('Проверка гетера', () => {
+  const result1 = new Daemon('hero', 'Daemon');
+  // eslint no-underscore-dangle: "off"
+  expect(result1.stoned).toBe(3);
+});
+
+test('Проверка гетера', () => {
+  const result1 = new Daemon('hero', 'Daemon');
+  expect(result1.number).toBe(3);
 });
