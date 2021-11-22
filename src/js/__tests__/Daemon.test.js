@@ -1,5 +1,5 @@
 import Daemon from '../Daemon.js';
-import Character from '../app.js';
+import Character from '../Character.js';
 
 test('string length name error', () => {
   const result = new Daemon('hero', 'Daemon');
@@ -17,13 +17,13 @@ test('string length name error', () => {
   expect(result2).not.toMatchObject(result1);
 });
 
-test('Проверка гетера', () => {
+test('Проверка гетера stoned', () => {
   const result1 = new Daemon('hero', 'Daemon');
   // eslint no-underscore-dangle: "off"
   expect(result1.stoned).toBe(3);
 });
 
-test('Проверка гетера', () => {
+test('Проверка гетера число клеток', () => {
   const result1 = new Daemon('hero', 'Daemon');
   expect(result1.number).toBe(3);
 });
