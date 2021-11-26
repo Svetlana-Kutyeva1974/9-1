@@ -13,25 +13,30 @@ test('app string length name error', () => {
 
 test('app string length name error', () => {
   expect(() => {
-    // eslint-disable-next-line no-unused-vars
-    const obj = new Character('heroismerror', 'Magician');
+    const p = new Character('heroismerror', 'Magician');
+    console.log(p.name);
   }).toThrow(/Ошибка, имя должно содержать не менее 2 и не более 10 символов/);
 });
 
 test('app type error ', () => {
   expect(() => {
-    // eslint-disable-next-line no-unused-vars
     const result3 = new Character('hero5', 'Magiciancheck');
+    console.log(result3.type);
   }).toThrow(/Ошибка, недопустимый тип элемента/);
 });
 
 test('Проверка значений stoned', () => {
   const result1 = new Magician('hero', 'Magician');
-  // eslint no-underscore-dangle: "error"
-  expect(result1.stoned).toBe(10);
+  expect(result1.stoned).toBe(0);
 });
 
-test('Проверка number', () => {
+test('Проверка attack', () => {
   const result1 = new Magician('hero', 'Magician');
-  expect(result1.number).toBe(0);
+  expect(result1.attack).toBe(9);
+});
+
+test('Проверка attack', () => {
+  const result1 = new Character('hero', 'Magician');
+  result1.attack = 5;
+  expect(result1.attack).toBe(NaN);
 });

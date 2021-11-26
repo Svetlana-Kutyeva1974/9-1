@@ -26,12 +26,7 @@ get stoned() {
 }
 
 set stoned(value) {
-  if (this.number > 0) {
-    this._stoned = value - Math.trunc(Math.log2(this.number) * 5);
-    console.log('дурман', value, this.stoned);
-  } else {
-    this._stoned = 10;
-  }
+  this._stoned = value;
 }
 
 get attack() {
@@ -39,11 +34,10 @@ get attack() {
 }
 
 set attack(value) {
-  if (this.number > 0) {
-    this._attack = value - Math.trunc((value * (((this.number - 1) * 10) / 100)));
-    console.log('attack', value, this.attack);
-  } else {
-    this._attack = 10;
+  this._attack = value - Math.round((value * 0.1 * (this.distance - 1)));
+  if (this.stoned) {
+    this._attack -= Math.log2(this.distance) * 5;
   }
+  return this._attack >= 0 ? Math.round(this._attack) : 0;
 }
 }
